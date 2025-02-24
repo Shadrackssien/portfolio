@@ -14,17 +14,17 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 
 export const HeroSection = () => {
   return (
-    <div className=" relative h-screen">
-      <div
-        className="absolute inset-0 -z-30 opacity-5"
-        style={{
-          backgroundImage: `url(${granImage.src})`,
-        }}
-      ></div>
-      <div className="relative flex items-center justify-center flex-col lg:flex-row">
-        {/* profile */}
-        <div className="relative w-full lg:w-3/5 overflow-x-clip">
-          <div className="">
+    <div className=" relative">
+      <div className="[mask-image:linear-gradient(to_bottom,black,black_90%,transparent)]">
+        <div
+          className="absolute inset-0 -z-30 opacity-5"
+          style={{
+            backgroundImage: `url(${granImage.src})`,
+          }}
+        ></div>
+        <div className="relative flex items-center justify-center flex-col lg:flex-row">
+          {/* profile */}
+          <div className="relative w-full lg:w-3/5 overflow-x-clip">
             <div className="size-[600px] hero-ring"></div>
             <div className="size-[700px] hero-ring"></div>
             <div className="size-[800px] hero-ring"></div>
@@ -104,11 +104,11 @@ export const HeroSection = () => {
               </button>
             </div>
           </div>
-        </div>
 
-        {/* 3d image */}
-        <div className=" w-full h-[600px] md:w-2/5 flex justify-center items-center">
-          <ComputerModel />
+          {/* 3d image */}
+          <div className=" w-full h-[600px] md:w-2/5 flex justify-center items-center">
+            <ComputerModel />
+          </div>
         </div>
       </div>
     </div>
