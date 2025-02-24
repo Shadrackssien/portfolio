@@ -1,60 +1,3 @@
-// "use client";
-
-// import { Canvas, useLoader } from "@react-three/fiber";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-
-// const ComputerModel = () => {
-//   const myModel = useLoader(GLTFLoader, "/computer.glb");
-
-//   return (
-//     <Canvas style={{ height: "500px", width: "100%" }}>
-//       <pointLight position={[-10, -10, -10]} color="#48cc90" intensity={5000} />
-//       <pointLight position={[10, 10, 10]} color="#36e2e2" intensity={5000} />
-//       <primitive object={myModel.scene} />
-//     </Canvas>
-//   );
-// };
-
-// export default ComputerModel;
-
-// "use client";
-
-// import { useFrame, useLoader } from "@react-three/fiber";
-// import { useRef } from "react";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-// import { useIsMobile } from "../hooks";
-// import dynamic from "next/dynamic";
-
-// const OrbitControls = dynamic(
-//   () => import("@react-three/drei").then((mod) => mod.OrbitControls),
-//   { ssr: false }
-// );
-
-// const ComputerModel = () => {
-//   const { isMobile } = useIsMobile();
-//   const gltf = useLoader(GLTFLoader, "/computer.glb");
-//   const ref = useRef();
-
-//   useFrame(() => {
-//     if (ref.current) {
-//       ref.current.rotation.y += 0.002;
-//     }
-//   });
-//   return (
-//     <canvas>
-//       <spotLight position={[5, 10, 7.5]} />
-//       <spotLight position={[-3, 10, -7.5]} />
-//       <pointLight color={"#f00"} position={[0, 0.6, 0]} distance={1.5} />
-//       {isMobile ? null : <OrbitControls enableZoom={false} enablePan={false} />}
-//       <primitive object={gltf.scene} scale={isMobile ? 2 : 1.2} ref={ref} />
-//     </canvas>
-//   );
-// };
-
-// export default dynamic(() => Promise.resolve(ComputerModel), {
-//   ssr: false,
-// });
-
 "use client";
 
 import dynamic from "next/dynamic";
@@ -94,7 +37,7 @@ const Scene = () => {
         object={gltf.scene}
         scale={isMobile ? 2.5 : 2}
         ref={ref}
-        position={[0, -1.5, 0]}
+        position={[0, -1.7, 0]}
         castShadow
         receiveShadow
       />
@@ -114,7 +57,6 @@ const ComputerModel = () => {
   );
 };
 
-// Export with no SSR
 export default dynamic(() => Promise.resolve(ComputerModel), {
   ssr: false,
 });
