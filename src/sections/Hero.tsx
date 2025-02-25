@@ -8,8 +8,6 @@ import granImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 
-import { use } from "react";
-import { div } from "three/src/nodes/TSL.js";
 import { HeroOrbit } from "@/components/HeroOrbit";
 
 export const HeroSection = () => {
@@ -31,43 +29,43 @@ export const HeroSection = () => {
             <div className="size-[900px] hero-ring"></div>
 
             <HeroOrbit size={600} rotation={-90}>
-              <StarIcon className="size-16 text-emerald-300" />
+              <StarIcon className="size-16 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={510} rotation={45}>
-              <StarIcon className="size-16 text-emerald-300" />
+              <StarIcon className="size-16 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={600} rotation={-30}>
-              <StarIcon className="size-8 text-emerald-300" />
+              <StarIcon className="size-8 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={510} rotation={-180}>
-              <StarIcon className="size-4 text-emerald-300" />
+              <StarIcon className="size-4 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={600} rotation={-150}>
-              <SparkleIcon className="size-16 text-emerald-300/10" />
+              <SparkleIcon className="size-16 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={440} rotation={0}>
-              <SparkleIcon className="size-8 text-emerald-300/10" />
+              <SparkleIcon className="size-8 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={440} rotation={-190}>
-              <SparkleIcon className="size-12 text-emerald-300/10" />
+              <SparkleIcon className="size-12 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={510} rotation={100}>
-              <SparkleIcon className="size-16 text-emerald-300/10" />
+              <SparkleIcon className="size-16 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={440} rotation={-120}>
-              <SparkleIcon className="size-6 text-emerald-300/10" />
+              <SparkleIcon className="size-6 text-gray-300/10" />
             </HeroOrbit>
             <HeroOrbit size={480} rotation={9}>
-              <div className="size-3 rounded-full bg-emerald-300/10"></div>
+              <div className="size-3 rounded-full bg-gray-300/10"></div>
             </HeroOrbit>
             <HeroOrbit size={510} rotation={-138}>
-              <div className="size-3 rounded-full bg-emerald-300/10"></div>
+              <div className="size-3 rounded-full bg-gray-300/10"></div>
             </HeroOrbit>
             <HeroOrbit size={480} rotation={120}>
-              <div className="size-4 rounded-full bg-emerald-300/10"></div>
+              <div className="size-4 rounded-full bg-gray-300/10"></div>
             </HeroOrbit>
             <HeroOrbit size={480} rotation={-60}>
-              <div className="size-4 rounded-full bg-emerald-300/10"></div>
+              <div className="size-4 rounded-full bg-gray-300/10"></div>
             </HeroOrbit>
 
             <div className="flex flex-col items-center">
@@ -77,7 +75,12 @@ export const HeroSection = () => {
                 alt="shady picture"
               />
               <div className="bg-gray-950 border border-gray-800 px-3 py-1 inline-flex items-center gap-3 rounded-lg">
-                <div className="bg-green-500 size-2.5 rounded-full"></div>
+                <div
+                  className="bg-green-500 size-2.5 rounded-full
+                 relative"
+                >
+                  <div className="absolute bg-green-500 size-2.5 rounded-full animate-ping-large"></div>
+                </div>
                 <div className="text-sm font-medium text-white/60">
                   Available for new projects
                 </div>

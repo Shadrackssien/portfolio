@@ -14,7 +14,7 @@ export const ContactSection = () => {
       <div className="container relative">
         <div
           className="relative overflow-hidden z-0 bg-gradient-to-r 
-        from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 
+        from-red-300 to-sky-400 text-gray-900 py-8 px-10 
         rounded-3xl text-center md:text-left"
         >
           <div
