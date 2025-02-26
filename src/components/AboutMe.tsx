@@ -10,7 +10,7 @@ const AboutMe = () => {
       <div className="container">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-40">
           <div className="relative w-64 md:w-80 lg:w-96 mx-auto z-0 my-16 lg:my-24">
-            <div className="absolute w-full  rounded-3xl bg-gradient-to-r from-red-300 to-sky-400 inset-0 -z-10"></div>
+            <div className="absolute w-full lg:h-[32rem]  rounded-3xl bg-gradient-to-r from-red-300 to-sky-400 inset-0 -z-10"></div>
             <Image
               className="z-10 rotate-[9deg] w-full h-auto rounded-3xl"
               src={profile}
