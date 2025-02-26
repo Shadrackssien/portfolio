@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -22,12 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning={true}
         className={twMerge(
           inter.variable,
           calistoga.variable,
           "bg-[url('/portfolio-background2.jpg')] bg-blend-overlay bg-black/10  min-h-screen object-cover object-center text-white antialiased font-sans"
         )}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>

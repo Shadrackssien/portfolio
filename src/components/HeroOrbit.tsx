@@ -9,7 +9,7 @@ export const HeroOrbit = ({
   rotation: number;
 }>) => {
   return (
-    <div>
+    <div className="pointer-events-none">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ">
         <div className="animate-spin [animation-duration:100s] ">
           <div

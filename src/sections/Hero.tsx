@@ -22,11 +22,11 @@ export const HeroSection = () => {
         ></div>
         <div className="relative flex items-center justify-center flex-col lg:flex-row">
           {/* profile */}
-          <div className="relative w-full lg:w-3/5 overflow-x-clip">
-            <div className="size-[600px] hero-ring"></div>
-            <div className="size-[700px] hero-ring"></div>
-            <div className="size-[800px] hero-ring"></div>
-            <div className="size-[900px] hero-ring"></div>
+          <div className=" relative w-full lg:w-3/5 overflow-x-clip">
+            <div className="pointer-events-none size-[600px] hero-ring"></div>
+            <div className="pointer-events-none size-[700px] hero-ring"></div>
+            <div className="pointer-events-none size-[800px] hero-ring"></div>
+            <div className="pointer-events-none size-[900px] hero-ring"></div>
 
             <HeroOrbit size={600} rotation={-90}>
               <StarIcon className="size-16 text-gray-300/10" />

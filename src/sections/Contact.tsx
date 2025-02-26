@@ -9,6 +9,7 @@ import emailjs from "@emailjs/browser";
 import { useState, useRef } from "react";
 import Image from "next/image";
 import * as React from "react";
+import contactImage from "@/assets/images/contact-us.png";
 
 export const ContactSection = () => {
   const [userInput, setUserInput] = useState({
@@ -118,67 +119,66 @@ export const ContactSection = () => {
             }}
           ></div>
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="space-y-6 max-w-2xl mx-auto md:mx-0"
-          >
-            <div className="flex flex-col">
-              <label htmlFor="name" className="mb-2 font-medium text-gray-900">
-                Your Name:
-              </label>
-              <input
-                id="name"
-                type="text"
-                name="from_name" // For EmailJS template
-                value={userInput.name}
-                onChange={handleChange}
-                required
-                className="px-4 py-3 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition"
-              />
+          <div className="flex flex-col lg:flex-row lg:justify-between">
+            <div className="md:flex items-center md:justify-center">
+              <Image src={contactImage} alt="Contact Us" />
             </div>
 
-            <div className="flex flex-col">
-              <label htmlFor="email" className="mb-2 font-medium text-gray-900">
-                Your Email:
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="reply_to" // For EmailJS template
-                value={userInput.email}
-                onChange={handleChange}
-                required
-                className="px-4 py-3 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label
-                htmlFor="message"
-                className="mb-2 font-medium text-gray-900"
-              >
-                Your Message:
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={userInput.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="px-4 py-3 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition resize-y"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="lg:w-1/2 lg:mt-16 space-y-8 lg:space-y-12 "
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+              <div className="flex flex-col">
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your Full Name"
+                  name="from_name"
+                  value={userInput.name}
+                  onChange={handleChange}
+                  required
+                  className="px-4 py-3 bg-transparent text-white rounded-lg border transition"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your Email Address"
+                  name="reply_to"
+                  value={userInput.email}
+                  onChange={handleChange}
+                  required
+                  className="px-4 py-3 bg-transparent text-white rounded-lg border transition"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your Message"
+                  value={userInput.message}
+                  onChange={handleChange}
+                  required
+                  rows={8}
+                  className="px-4 py-3 bg-transparent text-white rounded-lg border transition"
+                />
+              </div>
+
+              <div className="md:flex md:justify-center md:items-center">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="text-gray-900 bg-white font-semibold border rounded-xl px-6 py-3 "
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
