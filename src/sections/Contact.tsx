@@ -1,7 +1,94 @@
+"use client";
+
 import ArrowRightUp from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
+import SectionHeader from "@/components/SectionHeader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
+import { useState, useRef } from "react";
+import Image from "next/image";
+import * as React from "react";
 
 export const ContactSection = () => {
+  const [userInput, setUserInput] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Update the state based on which field changed
+    // If the field has a name of "from_name", update the "name" property in the state
+    const stateKey =
+      name === "from_name" ? "name" : name === "reply_to" ? "email" : name;
+
+    setUserInput((prev) => ({
+      ...prev,
+      [stateKey]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceID || !templateID || !publicKey) {
+      toast.error(
+        "EmailJS configuration is missing. Check your environment variables."
+      );
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      console.log("Sending email with data:", {
+        from_name: userInput.name,
+        reply_to: userInput.email,
+        message: userInput.message,
+      });
+
+      const response = await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: userInput.name,
+          reply_to: userInput.email,
+          message: userInput.message,
+        },
+        publicKey
+      );
+
+      console.log("EmailJS Response:", response);
+
+      toast.success(
+        "Message sent successfully! Will get back to you soon. Thank you!"
+      );
+      setUserInput({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error(
+        `Failed to send message: ${
+          error.text || error.message || "Unknown error"
+        }`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="py-16 lg:py-24 relative">
       <div
@@ -11,11 +98,18 @@ export const ContactSection = () => {
         }}
       ></div>
 
+      <ToastContainer position="bottom-left" autoClose={5000} />
+
       <div className="container relative">
+        <SectionHeader
+          eyebrow="Get In Touch"
+          title="Contact Me"
+          description="Ready to bring your next project to life? Let's connect and discuss how I can help you achieve your goals"
+        />
         <div
-          className="relative overflow-hidden z-0 bg-gradient-to-r 
-        from-red-300 to-sky-400 text-gray-900 py-8 px-10 
-        rounded-3xl text-center md:text-left"
+          className="mt-12 relative overflow-hidden z-0 bg-transparent 
+           text-gray-900 py-8 px-10 border
+          rounded-3xl text-center md:text-left"
         >
           <div
             className="absolute inset-0 -z-10 opacity-5"
@@ -23,23 +117,68 @@ export const ContactSection = () => {
               backgroundImage: `url(${grainImage.src})`,
             }}
           ></div>
-          <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 md:gap-24">
-            <div>
-              <h2 className="font-serif font-bold text-2xl md:text-3xl">
-                Let's create something amazing together
-              </h2>
-              <p className="text-sm md:text-base mt-2">
-                Ready to bring your next project to life? Let's connect and
-                discuss how I can help you achieve your goals
-              </p>
+
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="space-y-6 max-w-2xl mx-auto md:mx-0"
+          >
+            <div className="flex flex-col">
+              <label htmlFor="name" className="mb-2 font-medium text-gray-900">
+                Your Name:
+              </label>
+              <input
+                id="name"
+                type="text"
+                name="from_name" // For EmailJS template
+                value={userInput.name}
+                onChange={handleChange}
+                required
+                className="px-4 py-3 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition"
+              />
             </div>
-            <div>
-              <button className="text-white border border-l-gray-900 bg-gray-900 w-max inline-flex items-center gap-2 px-6 h-12 rounded-xl mt-8">
-                <span className="font-semibold">Contact Me</span>
-                <ArrowRightUp className="size-4" />
-              </button>
+
+            <div className="flex flex-col">
+              <label htmlFor="email" className="mb-2 font-medium text-gray-900">
+                Your Email:
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="reply_to" // For EmailJS template
+                value={userInput.email}
+                onChange={handleChange}
+                required
+                className="px-4 py-3 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition"
+              />
             </div>
-          </div>
+
+            <div className="flex flex-col">
+              <label
+                htmlFor="message"
+                className="mb-2 font-medium text-gray-900"
+              >
+                Your Message:
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={userInput.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="px-4 py-3 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition resize-y"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+          </form>
         </div>
       </div>
     </div>
