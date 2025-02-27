@@ -10,6 +10,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import * as React from "react";
 import contactImage from "@/assets/images/contact-us.png";
+import SpotlightButton from "@/components/SpotlightButton";
 
 export const ContactSection = () => {
   const [userInput, setUserInput] = useState({
@@ -91,7 +92,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <div className="py-16 lg:py-24 relative">
+    <div id="contact" className="py-16 lg:py-24 relative">
       <div
         className="absolute inset-0 -z-10 opacity-5"
         style={{
@@ -169,13 +170,18 @@ export const ContactSection = () => {
               </div>
 
               <div className="md:flex md:justify-center md:items-center">
-                <button
+                {/* <button
                   type="submit"
                   disabled={isSubmitting}
                   className="text-gray-900 bg-white font-semibold border rounded-xl px-6 py-3 "
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
+                </button> */}
+                <SpotlightButton variant="primary" className="px-8 h-12">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="">Send Message</span>
+                  </div>
+                </SpotlightButton>
               </div>
             </form>
           </div>

@@ -7,6 +7,7 @@ import ArrowRightUp from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
+import SpotlightButton from "@/components/SpotlightButton";
 
 const portfolioProjects = [
   {
@@ -19,6 +20,7 @@ const portfolioProjects = [
       { title: "Increased mobile traffic by 35%" },
     ],
     link: "https://youtu.be/4k7IdSLxh6w",
+    github: "https://github.com/Shadrackssien",
     image: darkSaasLandingPage,
   },
   {
@@ -31,6 +33,7 @@ const portfolioProjects = [
       { title: "Increased brand awareness by 15%" },
     ],
     link: "https://youtu.be/7hi5zwO75yc",
+    github: "https://github.com/Shadrackssien",
     image: lightSaasLandingPage,
   },
   {
@@ -43,13 +46,15 @@ const portfolioProjects = [
       { title: "Increased mobile traffic by 35%" },
     ],
     link: "https://youtu.be/Z7I5uSRHMHg",
+    github: "https://github.com/Shadrackssien",
+
     image: aiStartupLandingPage,
   },
 ];
 
 export const ProjectsSection = () => {
   return (
-    <div className="font-sans pb-16 lg:py-24 relative">
+    <div id="projects" className="font-sans pb-16 lg:py-24 relative">
       <div
         className="absolute inset-0 -z-10 opacity-5"
         style={{
@@ -76,7 +81,7 @@ export const ProjectsSection = () => {
                   <div className="flex">
                     <div
                       className="bg-gradient-to-r from-red-300 to-sky-400
-                inline-flex gap-2 font-bold tracking-widest uppercase text-sm text-transparent bg-clip-text"
+                      inline-flex gap-2 font-bold tracking-widest uppercase text-sm text-transparent bg-clip-text"
                     >
                       <span>{project.company}</span>
                       <span>&bull;</span>
@@ -99,13 +104,34 @@ export const ProjectsSection = () => {
                     ))}
                   </ul>
 
-                  <a
-                    className="inline-flex items-center justify-center gap-2 mt-8 bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold"
-                    href={project.link}
-                  >
-                    <span>Visit Live Site</span>
-                    <ArrowRightUp className="size-4" />
-                  </a>
+                  <div className="flex flex-col md:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <SpotlightButton
+                        variant="primary"
+                        className="px-8 h-12 mt-8"
+                      >
+                        <div className="inline-flex items-center gap-2">
+                          <span>Visit Live Site</span>
+                          <ArrowRightUp className="size-4" />
+                        </div>
+                      </SpotlightButton>
+                    </a>
+                    <a
+                      className=""
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="mt-4 md:mt-8 cursor-pointer inline-flex items-center gap-2 border border-white/15 px-[38px] h-[54px] rounded-xl hover:bg-white/60 hover:text-gray-950 transition-all duration-800 ease-in-out">
+                        <span className="font-semibold">Github Repo</span>
+                        <ArrowRightUp className="size-4" />
+                      </div>
+                    </a>
+                  </div>
                 </div>
                 <div className="relative">
                   <Image

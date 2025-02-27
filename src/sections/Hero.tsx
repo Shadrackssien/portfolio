@@ -7,12 +7,14 @@ import ComputerModel from "../components/ComputerModel";
 import granImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
+import SpotlightButton from "@/components/SpotlightButton";
+import { Link as ScrollLink } from "react-scroll";
 
 import { HeroOrbit } from "@/components/HeroOrbit";
 
 export const HeroSection = () => {
   return (
-    <div className=" relative">
+    <div id="home" className=" relative">
       <div className="[mask-image:linear-gradient(to_bottom,black,black_90%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
@@ -87,24 +89,38 @@ export const HeroSection = () => {
               </div>
             </div>
             <div className="max-w-[30rem] mx-auto">
-              <h1 className="text-3xl md:text-5xl font-serif text-center mt-6 tracking-wide">
-                Building Exceptional User Experience
+              <h1 className="flex flex-col gap-2 text-3xl md:text-5xl font-serif text-center mt-6 tracking-wide">
+                <span className="block w-full text-center">
+                  <span className="text-sm text-white/40 pr-1 ">Hi, I'm</span>
+                  <span>Shadrack Essien</span>
+                </span>
+                <span className="bg-gradient-to-r from-red-300 to-sky-400 text-transparent bg-clip-text block w-full text-center">
+                  Front End Developer
+                </span>
               </h1>
-              <p className="mt-4 text-center text-white/60 md:text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates ratione quaerat unde laborum nemo, odit enim dolorem,
-                ex possimus
+              <p className="mt-4 px-8 md:px-0 text-center text-white/60 md:text-lg">
+                I deliver exceptional user experiences and turn designs into
+                powerful web applications that drive results. Let's discuss your
+                next project.
               </p>
             </div>
-            <div className="flex flex-col md:flex-row items-center justify-center mt-6 gap-4">
-              <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+            <div className="flex flex-col md:flex-row items-center justify-center mt-6 gap-4 ">
+              <ScrollLink
+                to="projects"
+                smooth={true}
+                duration={800}
+                className="cursor-pointer inline-flex items-center gap-2 border border-white/15 px-6 h-[52px] rounded-xl hover:bg-white/60 hover:text-gray-950 transition-all duration-800 ease-in-out"
+              >
                 <span className="font-semibold">Explore my work</span>
                 <ArrowDown className="size-4" />
-              </button>
-              <button className="inline-flex items-center gap-2 border border-white/15 bg-white text-gray-900 px-8 h-12 rounded-xl">
-                <span>👋</span>
-                <span>Let's Connect</span>
-              </button>
+              </ScrollLink>
+              <ScrollLink to="contact" smooth={true} duration={800}>
+                <SpotlightButton variant="primary" className="px-8 h-12">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="">Let's Connect</span>
+                  </div>
+                </SpotlightButton>
+              </ScrollLink>
             </div>
           </div>
 

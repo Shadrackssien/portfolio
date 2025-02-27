@@ -3,6 +3,8 @@ import Image from "next/image";
 import Card from "./Card";
 import Experience from "./svgs/experience";
 import Products from "./svgs/products";
+import SpotlightButton from "./SpotlightButton";
+import { Link as ScrollLink } from "react-scroll";
 
 const AboutMe = () => {
   return (
@@ -36,23 +38,24 @@ const AboutMe = () => {
             </div>
             <div className="mt-8">
               <p className="text-center md:text-left tracking-wide md:text-lg text-white/80">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aliquid non quibusdam totam voluptate deserunt nulla, minima
-                ipsam? Maxime, dicta. Est molestias beatae labore magnam cumque
-                perferendis suscipit, placeat quisquam vero? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Eum quia dolore, illo cum
-                corrupti blanditiis laudantium fugiat! Deleniti cumque optio quo
-                quidem molestias, modi accusantium vel architecto suscipit,
-                perspiciatis quas.lorem Lorem ipsum dolor sit, amet consectetur
-                adipisicing elit. Ad sed totam tempora reprehenderit molestiae
-                veritatis sequi officia alias voluptate sapiente, ab ratione
-                esse eos tempore optio possimus asperiores incidunt? Facere.
+                I'm a Frontend Engineer with a proven track record of building
+                high-performance web applications using Vue.js and React. My
+                expertise includes architecting enterprise-level applications,
+                implementing state management, and creating reusable components.
+                I prioritize code quality and adherence to best practices. I am
+                an effective team player, resourceful, and results-driven, with
+                a passion for growth and efficiency to meet company needs and
+                increase service value.
               </p>
             </div>
             <div className="flex items-center justify-center mt-8">
-              <button className="bg-white px-6 py-3 rounded-xl font-bold tracking-widest text-gray-900 ">
-                Let's talk
-              </button>
+              <ScrollLink to="contact" smooth={true} duration={800}>
+                <SpotlightButton variant="primary" className="px-8 h-12">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="">Let's Connect</span>
+                  </div>
+                </SpotlightButton>
+              </ScrollLink>
             </div>
           </div>
         </div>

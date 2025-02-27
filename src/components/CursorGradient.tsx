@@ -22,22 +22,23 @@ const CustomCursor = () => {
   useEffect(() => {
     if (cursorRef.current) {
       cursorRef.current.style.transform = `translate3d(${
-        mousePosition.x - 12
-      }px, ${mousePosition.y - 12}px, 0)`;
+        mousePosition.x - 600
+      }px, ${mousePosition.y - 600}px, 0)`;
     }
   }, [mousePosition]);
 
   return (
     <motion.div
       ref={cursorRef}
-      className="cursor bg-white/40 rounded-full"
+      className="cursor bg-gradient-to-r from-red-300/20 to-sky-400/20"
       style={{
         position: "fixed",
-        width: "24px",
-        height: "24px",
+        width: "1200px",
+        height: "1200px",
         pointerEvents: "none",
-        zIndex: 1,
-        mixBlendMode: "difference",
+        zIndex: -1,
+        maskImage:
+          "radial-gradient(circle, rgba(252,165,165,0.5) 0%, rgba(0,0,0,0) 70%)",
       }}
     />
   );

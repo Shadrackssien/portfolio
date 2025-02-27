@@ -2,7 +2,7 @@
 
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
-import bookImage from "@/assets/images/book-cover.png";
+import bookImage from "@/assets/images/book2.png";
 import Image from "next/image";
 import JavascriptIcon from "@/assets/icons/square-js.svg";
 import HTMLIcon from "@/assets/icons/html5.svg";
@@ -10,7 +10,7 @@ import CssIcon from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
-import mapImage from "@/assets/images/map.png";
+import mapImage from "@/assets/images/map2.png";
 import smileEmoji from "@/assets/images/smiley.png";
 import CardHeader from "@/components/CardHeader";
 import ToolboxItems from "@/components/ToolboxItems";
@@ -96,7 +96,7 @@ export const AboutSection = () => {
   const constraintRef = useRef(null);
 
   return (
-    <div className="py-16 lg:py-24 relative">
+    <div id="about" className="py-16 lg:py-24 relative">
       <div
         className="absolute inset-0 -z-10 opacity-5"
         style={{
