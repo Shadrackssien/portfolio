@@ -18,11 +18,11 @@ export const Header = () => {
     };
   }, []);
 
-  const handleSetActive = (to) => {
+  const handleSetActive = (to: string) => {
     setActiveNavItem(to);
   };
 
-  const getNavItemClasses = (section) => {
+  const getNavItemClasses = (section: string) => {
     let baseClasses =
       "nav-item cursor-pointer px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-500 ease-in-out";
 
