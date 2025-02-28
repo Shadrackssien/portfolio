@@ -13,7 +13,9 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Shadrack Essien",
+  description:
+    "Portfolio of Shadrack Essien, a front end developer, cloud engineer and UI/UX enthusiast.",
 };
 
 export default function RootLayout({
