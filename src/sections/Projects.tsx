@@ -1,6 +1,6 @@
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import yuppie from "@/assets/images/yuppie.png";
+import yuppycart from "@/assets/images/yuppy-cart.png";
+import getchange from "@/assets/images/getchange.png";
 import Image from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowRightUp from "@/assets/icons/arrow-up-right.svg";
@@ -11,44 +11,44 @@ import SpotlightButton from "@/components/SpotlightButton";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "Yuppie",
+    year: "2025",
+    title: "Movies Web Application",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Integration of TMDB API" },
+      { title: "Smooth User Experience" },
+      { title: "Responsive Design and User focus" },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
-    github: "https://github.com/Shadrackssien",
-    image: darkSaasLandingPage,
+    link: "https://yuppie-five.vercel.app/",
+    github: "https://github.com/Shadrackssien/yuppie",
+    image: yuppie,
   },
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "Yuppy Cart",
+    year: "2024",
+    title: "E-commerce Web Application",
     results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+      { title: "Smooth User Experience" },
+      { title: "Responsive Design and User focus" },
+      { title: "Product Catalog Feature" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
-    github: "https://github.com/Shadrackssien",
-    image: lightSaasLandingPage,
+    link: "https://yuppycart.netlify.app/",
+    github: "https://github.com/Shadrackssien/YuppyCart",
+    image: yuppycart,
   },
   {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
+    company: "GetChange",
+    year: "2025",
+    title: "Startup Landing Page and Dashboard",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "State Management with vuex" },
+      { title: "Smooth User Experience" },
+      { title: "Responsive Design and User focus" },
     ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    github: "https://github.com/Shadrackssien",
+    link: "https://getchange-app.vercel.app/",
+    github: "https://github.com/Shadrackssien/getchange-app",
 
-    image: aiStartupLandingPage,
+    image: getchange,
   },
 ];
 
