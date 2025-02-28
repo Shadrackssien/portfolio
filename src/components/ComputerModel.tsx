@@ -7,11 +7,12 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { useIsMobile } from "../hooks";
+import { Mesh } from "three";
 
 const Scene = () => {
   const { isMobile } = useIsMobile();
   const gltf = useLoader(GLTFLoader, "/computer.glb");
-  const ref = useRef();
+  const ref = useRef<Mesh>(null);
 
   useFrame(() => {
     if (ref.current) {

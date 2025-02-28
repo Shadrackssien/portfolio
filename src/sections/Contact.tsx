@@ -19,9 +19,11 @@ export const ContactSection = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
     // Update the state based on which field changed
@@ -35,7 +37,7 @@ export const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -80,11 +82,10 @@ export const ContactSection = () => {
         message: "",
       });
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      const errorAsError = error as Error;
+      console.error("EmailJS Error:", errorAsError);
       toast.error(
-        `Failed to send message: ${
-          error.text || error.message || "Unknown error"
-        }`
+        `Failed to send message: ${errorAsError.message || "Unknown error"}`
       );
     } finally {
       setIsSubmitting(false);

@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 }); // Initial position off-screen
-  const cursorRef = useRef(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const mouseMove = (e) => {
+    const mouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 

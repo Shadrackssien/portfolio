@@ -1,27 +1,38 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, ReactNode } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-const SpotlightButton = ({
+type VariantType = "default" | "outline" | "primary";
+
+interface SpotlightButtonProps extends HTMLMotionProps<"button"> {
+  children: ReactNode;
+  className?: string;
+  variant?: VariantType;
+}
+
+const SpotlightButton: React.FC<SpotlightButtonProps> = ({
   children,
   className = "",
   variant = "default",
   ...props
 }) => {
-  const btnRef = useRef(null);
-  const spanRef = useRef(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const spanRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const { width } = e.target.getBoundingClientRect();
-      const offset = e.offsetX;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!btnRef.current || !spanRef.current) return;
+
+      const { width } = (e.target as HTMLElement).getBoundingClientRect();
+      const offset = (e as MouseEvent & { offsetX: number }).offsetX;
       const left = `${(offset / width) * 100}%`;
 
       spanRef.current.animate({ left }, { duration: 250, fill: "forwards" });
     };
 
     const handleMouseLeave = () => {
+      if (!spanRef.current) return;
       spanRef.current.animate(
         { left: "50%" },
         { duration: 100, fill: "forwards" }
@@ -45,7 +56,7 @@ const SpotlightButton = ({
   const baseClasses = "relative overflow-hidden rounded-xl font-semibold";
 
   // Variant specific classes
-  const variantClasses = {
+  const variantClasses: Record<VariantType, string> = {
     default: "bg-slate-950 text-white",
     outline: "border border-white/15 text-white",
     primary: "bg-white text-gray-900",
