@@ -36,7 +36,7 @@ const Scene = () => {
       {isMobile ? null : <OrbitControls enableZoom={false} enablePan={false} />}
       <primitive
         object={gltf.scene}
-        scale={isMobile ? 2.5 : 2}
+        scale={isMobile ? 2.5 : 1.8}
         ref={ref}
         position={[0, -1.7, 0]}
         castShadow

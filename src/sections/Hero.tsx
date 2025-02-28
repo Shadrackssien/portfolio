@@ -127,7 +127,7 @@ export const HeroSection = () => {
           </div>
 
           {/* 3d image */}
-          <div className=" w-full h-[600px] md:w-2/5 flex justify-center items-center">
+          <div className=" w-full h-[400px] mt-16 md:mt-0 md:w-2/5 flex justify-center items-center">
             <ComputerModel />
           </div>
         </div>
