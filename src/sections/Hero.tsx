@@ -91,7 +91,9 @@ export const HeroSection = () => {
             <div className="max-w-[30rem] mx-auto">
               <h1 className="flex flex-col gap-2 text-3xl md:text-5xl font-serif text-center mt-6 tracking-wide">
                 <span className="block w-full text-center">
-                  <span className="text-sm text-white/40 pr-1 ">Hi, I'm</span>
+                  <span className="text-sm text-white/40 pr-1 ">
+                    Hi, I&apos;m
+                  </span>
                   <span>Shadrack Essien</span>
                 </span>
                 <span className="bg-gradient-to-r from-red-300 to-sky-400 text-transparent bg-clip-text block w-full text-center">
@@ -100,8 +102,8 @@ export const HeroSection = () => {
               </h1>
               <p className="mt-4 px-8 md:px-0 text-center text-white/60 md:text-lg">
                 I deliver exceptional user experiences and turn designs into
-                powerful web applications that drive results. Let's discuss your
-                next project.
+                powerful web applications that drive results. Let&apos;s discuss
+                your next project.
               </p>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center mt-6 gap-4 ">
@@ -117,7 +119,7 @@ export const HeroSection = () => {
               <ScrollLink to="contact" smooth={true} duration={800}>
                 <SpotlightButton variant="primary" className="px-8 h-12">
                   <div className="inline-flex items-center gap-2">
-                    <span className="">Let's Connect</span>
+                    <span className="">Let&apos;s Connect</span>
                   </div>
                 </SpotlightButton>
               </ScrollLink>

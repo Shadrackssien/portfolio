@@ -38,21 +38,21 @@ const AboutMe = () => {
             </div>
             <div className="mt-8">
               <p className="text-center md:text-left tracking-wide md:text-lg text-white/80">
-                I'm a Frontend Engineer with a proven track record of building
-                high-performance web applications using Vue.js and React. My
-                expertise includes architecting enterprise-level applications,
-                implementing state management, and creating reusable components.
-                I prioritize code quality and adherence to best practices. I am
-                an effective team player, resourceful, and results-driven, with
-                a passion for growth and efficiency to meet company needs and
-                increase service value.
+                I&apos;m a Frontend Engineer with a proven track record of
+                building high-performance web applications using Vue.js and
+                React. My expertise includes architecting enterprise-level
+                applications, implementing state management, and creating
+                reusable components. I prioritize code quality and adherence to
+                best practices. I am an effective team player, resourceful, and
+                results-driven, with a passion for growth and efficiency to meet
+                company needs and increase service value.
               </p>
             </div>
             <div className="flex items-center justify-center mt-8">
               <ScrollLink to="contact" smooth={true} duration={800}>
                 <SpotlightButton variant="primary" className="px-8 h-12">
                   <div className="inline-flex items-center gap-2">
-                    <span className="">Let's Connect</span>
+                    <span className="">Let&apos;s Connect</span>
                   </div>
                 </SpotlightButton>
               </ScrollLink>
